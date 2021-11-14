@@ -4,12 +4,12 @@
 void main()
 {
     int i, j, keylen, msglen;
-    char input[100], key[30], temp[30], quot[100], rem[30], key1[30];
+    char input[100], key[30], temp[30], quot[100], rem[100], key1[30];
 
-    printf("Enter Data: ");
+    printf("Enter data: ");
     gets(input);
 
-    printf("Enter Key: ");
+    printf("Enter key: ");
     gets(key);
 
     keylen = strlen(key);
@@ -23,7 +23,9 @@ void main()
     }
 
     for (i = 0; i < keylen; i++)
+    {
         temp[i] = input[i];
+    }
 
     for (i = 0; i < msglen; i++)
     {
@@ -34,6 +36,7 @@ void main()
         else
             for (j = 0; j < keylen; j++)
                 key[j] = key1[j];
+
         for (j = keylen - 1; j > 0; j--)
         {
             if (temp[j] == key[j])
@@ -48,15 +51,15 @@ void main()
 
     strcpy(rem, temp);
 
-    printf("\nQuotient is ");
+    printf("\nQuotient is : ");
     for (i = 0; i < msglen; i++)
         printf("%c", quot[i]);
 
-    printf("\nRemainder is ");
+    printf("\nRemainder is : ");
     for (i = 0; i < keylen - 1; i++)
         printf("%c", rem[i]);
 
-    printf("\nFinal data is: ");
+    printf("\nFinal data is : ");
     for (i = 0; i < msglen; i++)
         printf("%c", input[i]);
 
