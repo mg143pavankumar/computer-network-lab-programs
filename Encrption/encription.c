@@ -4,52 +4,58 @@
 
 void main()
 {
-    int i, ch, lp;
-    char cipher[50], plain[50];
-    char key[50];
+    int i, choice, lp;
+    char encrypt[50], plain[50], key[50];
 
     while (1)
     {
-        printf("\n---MENU---");
-        printf("\n 1.Data Encrption \t 2.Data Descrption \t 3.Exit");
+        printf("\n---- Menu ----\n");
+        printf("1. Data Encryption\n2. Data Description\n3. Exit\n");
+        printf("Enter you choice: ");
+        scanf("%d", &choice);
 
-        printf("\n Enter your choice:");
-        scanf("%d", &ch);
-
-        switch (ch)
+        switch (choice)
         {
         case 1:
-            printf("\n Data Encryption");
-            printf("Enter the plain text");
+        {
+            printf("\nData Encryption");
+            printf("\nEnter the plain text: ");
             fflush(stdin);
             scanf("%s", plain);
 
-            printf("\nEnter Encryption key");
+            printf("\nEnter encryption key: ");
             scanf("%s", key);
 
             lp = strlen(key);
 
             for (i = 0; plain[i] != '\0'; i++)
-                cipher[i] = plain[i] ^ lp;
+            {
+                encrypt[i] = plain[i] ^ lp;
+            }
 
-            cipher[i] = '\0';
+            encrypt[i] = '\0';
 
-            printf("encrypted text is");
-            puts(cipher);
-
-            break;
+            printf("\nEncrypted text is : ");
+            puts(encrypt);
+        }
+        break;
         case 2:
-            printf("data decryption");
+        {
+            printf("\nData Description");
 
-            for (i = 0; cipher[i] != '\0'; i++)
-                plain[i] = cipher[i] ^ lp;
+            for (i = 0; encrypt[i] != '\0'; i++)
+            {
+                plain[i] = encrypt[i] ^ lp;
+            }
 
-            printf("decrypted text is");
+            printf("\nDecrypted text is : ");
             puts(plain);
-
-            break;
+        }
+        break;
         case 3:
             exit(0);
+        default:
+            break;
         }
     }
 }
